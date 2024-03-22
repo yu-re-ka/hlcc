@@ -24,7 +24,7 @@ jobs:
       - run: echo "TARGET_PREFIX=$(nix eval --raw nixpkgs#${{ matrix.package-set }}pkgsStatic.stdenv.cc.targetPrefix)" >> $GITHUB_ENV
 
       # Install appropriate rust toolchain and linker
-      - run: nix profile install nixpkgs/dd44e564ad4ef870091a0ec1d7be08ff9cc3288e#${{ matrix.package-set }}pkgsStatic.{stdenv.cc,buildPackages.cargo}
+      - run: nix profile install nixpkgs/20f77aa09916374aa3141cbc605c955626762c9a#${{ matrix.package-set }}pkgsStatic.{stdenv.cc,buildPackages.cargo}
 
       # Make sure rust can find the linker
       - run: mkdir .cargo
