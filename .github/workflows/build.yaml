@@ -18,8 +18,8 @@ jobs:
         with:
           diagnostic-endpoint: ""
 
-      - run: echo "CARGO_BUILD_TARGET=$(nix eval --raw nixpkgs#${{ matrix.package-set }}pkgsStatic.rustPlatform.cargoBuildHook.rustTargetPlatformSpec)" >> $GITHUB_ENV
-      - run: echo "TARGET_PREFIX=$(nix eval --raw nixpkgs#${{ matrix.package-set }}pkgsStatic.stdenv.cc.targetPrefix)" >> $GITHUB_ENV
+      - run: echo "CARGO_BUILD_TARGET=$(nix eval --raw nixpkgs/20f77aa09916374aa3141cbc605c955626762c9a#${{ matrix.package-set }}pkgsStatic.stdenv.targetPlatform.rust.rustcTargetSpec)" >> $GITHUB_ENV
+      - run: echo "TARGET_PREFIX=$(nix eval --raw nixpkgs/20f77aa09916374aa3141cbc605c955626762c9a#${{ matrix.package-set }}pkgsStatic.stdenv.cc.targetPrefix)" >> $GITHUB_ENV
 
       # Install appropriate rust toolchain and linker
       - run: nix profile install nixpkgs/20f77aa09916374aa3141cbc605c955626762c9a#${{ matrix.package-set }}pkgsStatic.{stdenv.cc,buildPackages.cargo}
