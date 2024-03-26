@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        package-set: ["", pkgsCross.aarch64-multiplatform., pkgsCross.armv7l-hf-multiplatform., pkgsCross.gnu32., pkgsCross.riscv64.]
+        package-set: ["", pkgsCross.aarch64-multiplatform., pkgsCross.armv7l-hf-multiplatform., pkgsCross.gnu32.]
 
     steps:
       - uses: actions/checkout@v4
